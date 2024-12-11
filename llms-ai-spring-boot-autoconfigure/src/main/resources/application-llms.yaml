@@ -1,0 +1,64 @@
+llms:
+  ai:
+    chat:
+      models:
+        - name: 'gpt-4o'
+          desc: 'openai'
+          base-url: 'https://api.openai.com'
+          api-key: 'sunhan'
+          enabled: false
+          uri: '/v1/chat/completions'
+          options:
+            response-format:
+              type: text
+            presence-penalty: 2
+            temperature: 0.2
+            custom:
+              dims: 256
+              modelName: gpt
+
+        - name: hz30_v1
+          desc: 华藏大模型
+          base-url: http://122.226.240.96:10099/v1/chat/completions
+          options:
+            model: hz30_v1
+            temperature: 0.1f
+        #            stream-usage: false
+
+        - name: 'moonshot-v1-8k'
+          base-url: https://api.moonshot.cn
+          api-key: sk-Ou7qoeUx3ddwivmV4YPrURizkMMOG0SGsH1ARIJy0tLMB9bE
+          uri: /v1/chat/completions
+          headers:
+            # Authorization : Bearer sk-Ou7qoeUx3ddwivmV4YPrURizkMMOG0SGsH1ARIJy0tLMB9bE
+            content-response: [ ass,sss,sunhan ]
+            api-keys:
+              - Ou7qoeUx3ddwivmV4YPrURizkMMOG0SGsH1ARIJy0tLMB9bE
+              - sunhankey
+              - sfsfwsfwqfwfw
+          options:
+            model: moonshot-v1-8k
+            temperature: 0.3
+            top-k: 10
+            top-p: 0.2
+            custom:
+              dims: 256
+              modelName: gpt
+
+        - name: sunhan
+          base-url: http://172.16.2.114:8201/robot/ask.action
+          api-key: sk-Ou7qoeUx3ddwivmV4YPrURizkMMOG0SGsH1ARIJy0tLMB9bE
+          # uri: /v1/chat/completions
+          standard: false
+          options:
+            model: sunhan
+            temperature: 0.3
+            #top-k: 1
+            custom:
+              dims: 256
+              platform: weixin
+              modelName: gpt
+#    rest:
+#      read-timeout: 30000
+#      write-timeout: 30000
+#      connect-timeout: 3000
